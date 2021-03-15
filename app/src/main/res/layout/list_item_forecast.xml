@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="forecast"
+            type="com.example.weather.domain.Forecast" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/day_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Body"
+            app:dayOfWeek="@{forecast.datetime}"
+            app:layout_constraintEnd_toStartOf="@id/day_image"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Tuesday" />
+
+        <ImageView
+            android:id="@+id/day_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/image_content_description"
+            app:layout_constraintBottom_toBottomOf="@id/day_text"
+            app:layout_constraintEnd_toStartOf="@+id/day_max_text"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@id/day_text"
+            app:layout_constraintTop_toTopOf="@id/day_text"
+            app:src="@{forecast.condition_id}"
+            tools:srcCompat="@drawable/ic_clear" />
+
+        <TextView
+            android:id="@+id/day_max_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textAppearance="@style/TextAppearance.Body"
+            app:layout_constraintEnd_toStartOf="@id/day_min_text"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/day_image"
+            app:layout_constraintTop_toTopOf="@id/day_image"
+            app:temperature="@{forecast.temperature_maximum}"
+            tools:text="20°" />
+
+        <TextView
+            android:id="@+id/day_min_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textAppearance="@style/TextAppearance.Body"
+            android:textColor="@color/white_semi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/day_max_text"
+            app:layout_constraintTop_toTopOf="@id/day_max_text"
+            app:temperature="@{forecast.temperature_minimum}"
+            tools:text="16°" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

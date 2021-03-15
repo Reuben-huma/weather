@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_content_description">Cloud background</string>
+    <string name="temperature">%f</string>
+    <string name="today">Today</string>
+</resources>
